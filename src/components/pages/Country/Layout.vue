@@ -1,19 +1,19 @@
 <template>
 
 <b-container fluid id="ls-country" class="h-100 p-0">
-	<div class="ls-grid h-100 w-75"
-		style="float:left">
+	<div class="ls-grid h-100"
+		style="float:left;width: 70%">
 		<chinese-map />
 	</div>
 
-	<div class="ls-grid w-25"
+	<div class="ls-grid"
 		v-for="(panel, index) in chartPanelList"
 		:key="index"
 		:style="{
-			height: `${100/chartPanelList.length}%`
+			height: `${panel.height}%`
 		}"
-		style="float:right">
-		<component :is="panel" />
+		style="float:right;width: 30%">
+		<component :is="panel.component" />
 	</div>
 </b-container>
 
@@ -32,7 +32,18 @@ export default {
 	data() {
 		return {
 			chartPanelList: [
-				AppNumber, MonthChart, SafeIndex
+				{
+					component: AppNumber,
+					height: 20
+				},
+				{
+					component: MonthChart,
+					height: 40
+				},
+				{
+					component: SafeIndex,
+					height: 40
+				}
 			]
 		};
 	}

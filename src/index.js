@@ -4,15 +4,25 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 import VueRouter from 'vue-router';
+
 import LsPanel from './plugin/panel';
+import LsChart from './plugin/chart';
 
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 Vue.use(LsPanel);
+Vue.use(LsChart);
 
 import './style/index.less';
 import App from './components/App';
 import routerOptions from './router';
+
+window.data = {
+	appTotal: 0,
+	tianjin: {
+		appTotal: 0
+	}
+};
 
 App.router = new VueRouter(routerOptions);
 
