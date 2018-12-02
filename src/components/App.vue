@@ -4,10 +4,21 @@
 	<div id="bg">
 		<div id="bg-mask" />
 	</div>
-	<router-view></router-view>
+	<transition
+		:leave-active-class="`animated ${$route.path === '/country' ? 'zoomOut' : 'zoomIn'}`">
+		<router-view></router-view>
+	</transition>
 </div>
 
 </template>
+
+<script>
+export default {
+	mounted() {
+	}
+}
+</script>
+
 
 <style lang="less">
 @PaddingY: 20px;

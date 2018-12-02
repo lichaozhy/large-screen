@@ -2,7 +2,8 @@
 
 <ls-panel
 	title="中国 - 全国App发布数量分布总览">
-	<chart-map :series="series" />
+	<chart-map :series="series"
+		@click="enterTianjin" />
 </ls-panel>
 
 </template>
@@ -23,6 +24,7 @@ export default {
 		});
 
 		sample.forEach(data => window.data.appTotal += data.value);
+		window.data.tianjin.appTotal = sample.find(data => data.name === '天津').value;
 
 		return {
 			series: [
@@ -49,9 +51,19 @@ export default {
 			]
 		};
 	},
+	beforeCreate() {
+		window.data.appTotal = 0;
+	},
 	computed: {
 		mapGeoJson() {
 			return chinaMapGeoJson;
+		}
+	},
+	methods: {
+		enterTianjin(event) {
+			if (event.point.name === '天津') {
+				this.$router.push('/tianjin');
+			}
 		}
 	}
 }

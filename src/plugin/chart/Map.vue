@@ -1,5 +1,5 @@
 <template>
-  <div ref="container" class="h-100 w-100 position-absolute ls-map"></div>
+  <div ref="container" class="h-100 w-100 ls-map"></div>
 </template>
 
 <script>
@@ -27,8 +27,13 @@ const DEFAULT_OPTIONS = {
 			[0, '#EFEFFF'],
 			[0.5, Highcharts.getOptions().colors[0]],
 			[1, Highcharts.Color(Highcharts.getOptions().colors[0]).brighten(-0.5).get()]
-		]
-	},
+    ],
+    labels: {
+      style: {
+        color: '#fff'
+      }
+    }
+  }
 };
 
 export default {
@@ -46,7 +51,16 @@ export default {
   methods: {
     render() {
 			const mixedOptions = Object.assign({}, DEFAULT_OPTIONS, {
-        series: this.series
+        series: this.series,
+        plotOptions: {
+          series: {
+            events: {
+              click: (e) => {
+                this.$emit('click', e);
+              }
+            }
+          }
+        }
 			});
 
       this.map = new Highcharts.mapChart(this.$refs.container, mixedOptions);

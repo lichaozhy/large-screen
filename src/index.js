@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import 'animate.css';
 
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
@@ -20,7 +21,7 @@ import routerOptions from './router';
 window.data = {
 	appTotal: 0,
 	tianjin: {
-		appTotal: 0
+		appTotal: 5000
 	}
 };
 

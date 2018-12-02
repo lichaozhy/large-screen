@@ -24,6 +24,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/runtime": "^7.1.2",
+    "animate.css": "^3.7.0",
     "babel-loader": "^8.0.4",
     "bootstrap-vue": "^2.0.0-rc.11",
     "cross-env": "^5.2.0",

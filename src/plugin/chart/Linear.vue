@@ -1,5 +1,5 @@
 <template>
-  <div ref="container" class="h-100 w-100 position-absolute ls-map"></div>
+  <div ref="container" class="h-100 w-100 ls-map"></div>
 </template>
 
 <script>

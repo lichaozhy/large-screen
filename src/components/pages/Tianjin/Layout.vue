@@ -2,25 +2,25 @@
 	
 <b-container fluid class="h-100 p-0">
 	
-	<div class="ls-grid w-25"
+	<div class="ls-grid"
 		v-for="(panel, index) in chartPanelList"
 		:key="index"
 		:style="{
 			clear: index % 2 ? 'none' : 'right',
 			height: `${100/chartPanelList.length *2}%`
 		}"
-		style="float:right">
+		style="float:right;width:20%">
 
 		<component :is="panel" />
 	</div>
 
-	<div class="ls-grid h-75 w-50"
-		style="">
+	<div class="ls-grid h-75"
+		style="width:60%">
 		<tianjin-map />
 	</div>
 	
-	<div class="ls-grid h-25 w-50"
-		style="">
+	<div class="ls-grid h-25"
+		style="width:60%">
 		<area-top10 />
 	</div>
 	

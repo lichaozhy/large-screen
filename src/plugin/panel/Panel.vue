@@ -36,7 +36,7 @@ export default {
 	}
 
 	.card-body {
-		background: rgba(33, 66, 99,.4);
+		background: rgba(33, 66, 99,.5);
 		position: relative;
 		padding: 0;
 	}
