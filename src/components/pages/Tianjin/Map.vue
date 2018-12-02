@@ -85,9 +85,8 @@ export default {
 	},
 	mounted() {
 		let index = 0;
-		console.log(this.$refs.map)
 
-		setInterval(() => {
+		this.timer = setInterval(() => {
 			if (this.stop) {
 				return;
 			}
@@ -96,6 +95,9 @@ export default {
 
 			this.$refs.map.map.get(districtList[this.index]).select();
 		}, 2000);
+	},
+	destroyed() {
+		clearInterval(this.timer);
 	}
 }
 </script>

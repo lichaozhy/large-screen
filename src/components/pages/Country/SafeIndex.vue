@@ -10,7 +10,7 @@ export default {
 	methods: {
 		update(chart) {
 			if (!chart.renderer.forExport) {
-				setInterval(function () {
+				this.timer = setInterval(function () {
 					var point = chart.series[0].points[0],
 						newVal,
 						inc = Math.round((Math.random() - 0.5) * 20);
@@ -22,6 +22,9 @@ export default {
 				}, 3000);
 			}
 		}
+	},
+	destroyed() {
+		clearInterval(this.timer);
 	}
 };
 </script>
