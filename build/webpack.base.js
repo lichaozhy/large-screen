@@ -43,7 +43,7 @@ module.exports = {
 				loader: 'url-loader',
 				options: {
 					limit: 10000,
-					name: path.join(assetsPath, 'fonts/[name].[hash:7].[ext]')
+					name: path.join('[name].[hash:7].[ext]')
 				}
 			},
 			{
