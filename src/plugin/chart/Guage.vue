@@ -91,7 +91,7 @@ const options = {
   series: [
     {
       name: "当前安全指数： ",
-      data: [80],
+      data: [90],
       tooltip: {
         valueSuffix: " 分"
 			},
@@ -115,7 +115,7 @@ export default {
     render() {
 			const mixedOptions = Object.assign({}, options);
 
-      this.map = new Highcharts.Chart(this.$refs.container, mixedOptions, this.callback || null);
+      this.map = new Highcharts.Chart(this.$refs.container, mixedOptions);
     }
   },
   mounted() {

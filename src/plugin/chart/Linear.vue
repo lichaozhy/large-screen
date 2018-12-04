@@ -20,7 +20,11 @@ const DEFAULT_OPTIONS = {
 		line: {
 			dataLabels: {
 				// 开启数据标签
-				enabled: true          
+				enabled: true,
+				style: {
+					color: '#fff',
+					fontSize: '14px'
+				}
 			},
 		}
 	},

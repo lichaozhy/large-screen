@@ -35,9 +35,10 @@ const DEFAULT_OPTIONS = {
 			cursor: 'pointer',
 			dataLabels: {
 				enabled: true,
-				format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+				format: '{point.name}: {point.percentage:.1f} %',
 				style: {
-					color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+					color: '#fff',
+					fontSize: '14px'
 				}
 			},
 		}

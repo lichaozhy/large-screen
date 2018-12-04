@@ -13,10 +13,10 @@
 		<p>风险APP较上月新增：{{sample[index].deltaRiskAppNumber}}</p>
 	</div>
 	<chart-map ref="map" :series="series" />
-	<b-button variant="link"
+	<!-- <b-button variant="link"
 		href="#/"
 		size="lg"
-		style="color:#fff;position:absolute;top:1em;right:1em">返回全国总览</b-button>
+		style="color:#fff;position:absolute;top:1em;right:1em">返回全国总览</b-button> -->
 </ls-panel>
 
 </template>
