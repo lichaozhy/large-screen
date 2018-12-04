@@ -16,7 +16,7 @@ const DEFAULT_OPTIONS = {
 		backgroundColor: null
 	},
   mapNavigation: {
-    enabled: true,
+    enabled: false,
     buttonOptions: {
       verticalAlign: "bottom"
     }

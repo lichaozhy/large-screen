@@ -4,9 +4,6 @@
 
 <script>
 import Highcharts from "highcharts";
-import HighchartsMore from 'highcharts/highcharts-more';
-
-HighchartsMore(Highcharts);
 
 const options = {
   chart: {
@@ -26,7 +23,7 @@ const options = {
   pane: {
     startAngle: -90,
     endAngle: 90,
-		center: ['50%', '75%'],
+		center: ['50%', '80%'],
     background: null
   },
   plotOptions: {
@@ -101,7 +98,7 @@ const options = {
 			dataLabels: {
 				borderWidth: 0,
 				style: {
-          fontSize: '48px',
+          fontSize: '42px',
           color: '#369'
 				}
 			}

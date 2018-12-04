@@ -14,7 +14,8 @@ import { tradeList } from './utils';
 const data = tradeList.map(name => {
 	return {
 		name,
-		y: randRage(20, 1000)
+		y: randRage(20, 1000),
+		z: randRage(5, 100)
 	};
 });
 

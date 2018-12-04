@@ -1,3 +1,10 @@
+import Highcharts from 'highcharts';
+import HighchartsMore from 'highcharts/highcharts-more';
+import Variablepie from 'highcharts/modules/variable-pie';
+
+HighchartsMore(Highcharts);
+Variablepie(Highcharts);
+
 import Map from './Map';
 import Linear from './Linear';
 import Wrap from './ChartWrap';

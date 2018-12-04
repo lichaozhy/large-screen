@@ -70,6 +70,7 @@ export default {
 					point: {
 						events: {
 							select: event => {
+								this.$emit('map-select', event.target.id);
 								this.index = districtList.indexOf(event.target.id);
 							}
 						}
@@ -92,8 +93,9 @@ export default {
 			}
 
 			this.index = index++ % districtList.length;
+			const name = districtList[this.index];
 
-			this.$refs.map.map.get(districtList[this.index]).select();
+			this.$refs.map.map.get(name).select();
 		}, 2000);
 	},
 	destroyed() {

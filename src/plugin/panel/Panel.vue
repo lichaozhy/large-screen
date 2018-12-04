@@ -27,23 +27,23 @@ export default {
 	height: 100%;
 
 	.card-header {
-		font-size: 12px;
+		font-size: 20px;
 		padding: @titlePadding;
 		color: #fff;
-		background-color: #369;
+		background-color: transparent;
 		text-align: center;
 		border-radius: 0;
 	}
 
 	.card-body {
-		background: rgba(33, 66, 99,.5);
+		background: transparent;
 		position: relative;
 		padding: 0;
 	}
 
 	&.card {
 		// border-width: 2px;
-		border-color: #369;
+		border-color: rgba(255,255,255,0);
 		background-color: transparent;
 	}
 

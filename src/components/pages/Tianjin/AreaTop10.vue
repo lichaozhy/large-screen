@@ -1,29 +1,21 @@
 <template>
 
 <ls-panel
-	:title="`各区 - TOP10 应用&amp;安全性 - <${districtList[index]}>`">
-	<b-carousel id="carousel1"
-		style="text-shadow: 1px 1px 2px #333;height: 100%"
-		controls
-		indicators
-		background="transparent"
-		:interval="5000"
-		v-model="index">
+	id="top10-app"
+	:title="`TOP10 APP - ${current}`">
+	<b-table striped hover
+		small
+		:fields="[
+			{ key: 'index', label: '排名' },
+			{ key: 'name', label: 'App名称' },
+			{ key: 'safe', label: '安全?' },
+		]"
+		:items="districtAppMap[current]">
+		
+		<template slot="index" slot-scope="data">{{data.index+1}}</template>
+		<template slot="safe" slot-scope="data">{{data.item.safe ? '√' : ''}}</template>
+		</b-table>
 
-		<b-carousel-slide class="ls-city-district-top10"
-			v-for="(district, index) in districtAppList"
-			:key="index">
-			<b-button v-for="(app, index) in district.appList"
-				:key="district.name+index"
-				variant="link"
-				size="lg">
-				{{app.name}}
-				<i v-if="!app.safe" class="fas fa-exclamation-triangle"></i>
-				<i v-if="app.safe" class="fas fa-shield-alt"></i>
-			</b-button>
-		</b-carousel-slide>
-
-    </b-carousel>
 </ls-panel>
 
 </template>
@@ -41,35 +33,35 @@ const appNameList = [
 
 export default {
 	data() {
-		return {
-			index: 0,
-			districtList: districtList.slice(0),
-			districtAppList: districtList.map(name => {
+		const districtAppMap = {};
+
+		districtList.forEach(name => {
+			districtAppMap[name] = new Array(10).fill(0).map((_, index) => {
 				return {
-					name,
-					appList: new Array(10).fill(0).map((_, index) => {
-						return {
-							name: appNameList[index],
-							safe: Math.random() > 0.2
-						}
-					})
-				};
+					name: appNameList[index],
+					safe: Math.random() > 0.2
+				}
 			})
+		});
+
+		return {
+			current: '和平区',
+			districtAppMap
 		};
+	},
+	methods: {
+		select(districtName) {
+			this.current = districtName;
+		}
 	}
 }
 </script>
 
 <style lang="less">
-.ls-city-district-top10 {
-	color: #fff;
-	height: 100%;
-	width: 100%;
-}
-.carousel-inner {
-	height: 100%;
-	button {
-		color:#fff;
+#top10-app {
+	table {
+		color: #fff;
+		font-size: 15px;
 	}
 }
 </style>

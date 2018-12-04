@@ -26,6 +26,7 @@ const DEFAULT_OPTIONS = {
 	},
 	chart: {
 		type: 'pie',
+		// type: 'variablepie',
 		backgroundColor: null
 	},
 	plotOptions: {
@@ -33,13 +34,12 @@ const DEFAULT_OPTIONS = {
 			allowPointSelect: true,
 			cursor: 'pointer',
 			dataLabels: {
-				enabled: false,
+				enabled: true,
 				format: '<b>{point.name}</b>: {point.percentage:.1f} %',
 				style: {
 					color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
 				}
 			},
-			showInLegend: true
 		}
 	},
 	legend: {
@@ -84,6 +84,7 @@ export default {
     render() {
 			const mixedOptions = Object.assign({}, DEFAULT_OPTIONS, {
 				series: [{
+					innerSize: '60%',
 					data: this.data
 				}]
 			});
