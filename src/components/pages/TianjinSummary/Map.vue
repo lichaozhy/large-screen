@@ -4,14 +4,15 @@
 	@mouseover.native="stop=true"
 	@mouseout.native="stop=false"
 	class="city-map"
+	:bordered="false"
 	title="天津市 - 全市App发布数量分布总览">
-	<div class="city-info">
+	<!-- <div class="city-info">
 		<h2 class="mb-4">{{sample[index].name}}</h2>
 		<p>本区当月在线APP数量：{{sample[index].value}}</p>
 		<p>在线APP较上月新增：{{sample[index].deltaValue}}</p>
 		<p>有风险的APP数量：{{sample[index].riskAppNumber}}</p>
 		<p>风险APP较上月新增：{{sample[index].deltaRiskAppNumber}}</p>
-	</div>
+	</div> -->
 	<chart-map ref="map" :series="series" />
 	<!-- <b-button variant="link"
 		href="#/"

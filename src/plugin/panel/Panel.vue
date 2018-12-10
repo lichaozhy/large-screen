@@ -2,6 +2,9 @@
 
 <b-card
 	class="ls-panel rounded-0"
+	:class="{
+		'no-border': !bordered
+	}"
 	:header="title">
 
 	<div class="panel-inner"><slot /></div>
@@ -14,8 +17,10 @@ export default {
 	props: {
 		title: {
 			default: '未命名'
+		},
+		bordered: {
 		}
-	},
+	}
 }
 </script>
 
@@ -27,23 +32,23 @@ export default {
 	height: 100%;
 
 	.card-header {
-		font-size: 20px;
+		font-size: 16px;
 		padding: @titlePadding;
 		color: #fff;
-		background-color: transparent;
+		background-color: #369;
 		text-align: center;
 		border-radius: 0;
 	}
 
 	.card-body {
-		background: transparent;
+		background-image: linear-gradient(150deg, rgba(51, 102, 153, .6) 0%, rgba(51, 102, 153, .2) 40%);
 		position: relative;
 		padding: 0;
 	}
 
 	&.card {
-		// border-width: 2px;
-		border-color: rgba(255,255,255,0);
+		border-width: 2px;
+		border-color: #369;
 		background-color: transparent;
 	}
 
@@ -53,6 +58,20 @@ export default {
 		bottom: @innerPadding;
 		left: @innerPadding;
 		right: @innerPadding;
+	}
+
+	&.no-border {
+		.card-body {
+			background: transparent;
+		}
+		
+		.card-header {
+			display: none;
+		}
+
+		&.card {
+			border-width: 0;
+		}
 	}
 }
 </style>

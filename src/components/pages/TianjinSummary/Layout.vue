@@ -3,11 +3,16 @@
 <b-container fluid class="h-100 p-0" id="tianjin-view">
 
 	<div class="ls-grid"
-		style="width:40%;height:100%;left:20%">
-		<tianjin-map @map-select="syncTop10" />
+		style="width:40%;left:30%;top:10%;bottom:10%">
+		<tianjin-map />
 	</div>
 
 	<div class="ls-grid"
+		style="width:30%;height:40%;right: 0%;top:0">
+		<month-chart />
+	</div>
+
+	<!-- <div class="ls-grid"
 		style="width:20%;height:40%;left: 0">
 		<area-top10 ref="top10" />
 	</div>
@@ -21,11 +26,6 @@
 		style="width:20%;height:30%;left: 0;top:70%">
 		<safe-index />
 	</div>
-
-	<div class="ls-grid"
-		style="width:20%;height:40%;left: 60%;top:0">
-		<month-chart />
-	</div>
 	
 	<div class="ls-grid"
 		style="width:20%;height:40%;left: 80%;top:0">
@@ -35,7 +35,7 @@
 	<div class="ls-grid"
 		style="width:40%;height:60%;left: 60%;top:40%">
 		<area-pie />
-	</div>
+	</div> -->
 </b-container>
 
 </template>
