@@ -3,7 +3,7 @@
 <ls-panel
 	class="ls-number-panel"
 	bordered="true"
-	title="天津市App发布总数">
+	title="天津市App漏洞总数">
 	<h1>{{total}}</h1>
 </ls-panel>
 
@@ -13,10 +13,24 @@
 import format from 'format-number';
 import rawData from '../../../assets/data.json';
 
+const codeList = Object.keys(rawData.district);
+const districtRiskTotalList = codeList.map(code => {
+	const risk = rawData.district[code].risk;
+	let total = 0;
+
+	risk.forEach(number => total += number);
+
+	return total;
+});
+
+let riskTotal = 0;
+
+districtRiskTotalList.forEach(number => riskTotal += number);
+
 export default {
 	computed: {
 		total() {
-			return format({ suffix: ' 个' })(rawData.tianjin.summary.app);
+			return format({ suffix: ' 个' })(riskTotal);
 		}
 	}
 }

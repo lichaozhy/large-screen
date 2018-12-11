@@ -1,21 +1,21 @@
 <template>
 	
 <b-container fluid class="h-100 p-0" id="tianjin-view">
-	<h1>天津市App发布情况总览</h1>
+	<h1>全市App安全态势</h1>
 	
 	<div class="ls-grid"
 		style="width:30%;height:30%;left:0;top:0">
-		<app-number />
+		<risk-number />
 	</div>
 
 	<div class="ls-grid"
 		style="width:30%;height:70%;left:0;top:30%">
-		<district-bar />
+		<risk-trade-bar />
 	</div>
 
 	<div class="ls-grid"
 		style="width:40%;left:30%;top:0%;bottom:0%">
-		<tianjin-map @map-select="goto" />
+		<tianjin-map />
 	</div>
 
 	<div class="ls-grid"
@@ -25,7 +25,7 @@
 
 	<div class="ls-grid"
 		style="width:30%;height:60%;right:0;top:40%">
-		<trade-bar />
+		<scatter-risk />
 	</div>
 
 </b-container>
@@ -35,15 +35,15 @@
 <script>
 import tianjinMapGeoJson from '../../../assets/geoJson/tianjin.json';
 
+import RiskNumber from './RiskNumber';
 import TianjinMap from './Map';
-import MonthChart from './MonthChart';
-import DistrictBar from './DistrictBar';
-import AppNumber from './AppNumber';
-import TradeBar from './TradeBar';
+import MonthChart from './RiskMonth';
+import RiskTradeBar from './RiskTradeBar';
+import ScatterRisk from './ScatterRisk';
 
 export default {
 	components: {
-		TianjinMap, MonthChart, DistrictBar, AppNumber, TradeBar
+		RiskNumber, TianjinMap, MonthChart, RiskTradeBar, ScatterRisk
 	},
 	methods: {
 		goto(name) {
