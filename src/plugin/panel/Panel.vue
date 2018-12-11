@@ -41,7 +41,7 @@ export default {
 	}
 
 	.card-body {
-		background-image: linear-gradient(150deg, rgba(51, 102, 153, .6) 0%, rgba(51, 102, 153, .2) 40%);
+		background-image: linear-gradient(330deg, rgba(51, 102, 153, .6) 0%, rgba(51, 102, 153, .2) 50%);
 		position: relative;
 		padding: 0;
 	}

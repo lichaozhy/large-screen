@@ -13,7 +13,7 @@ const DEFAULT_OPTIONS = {
 		enabled: false
 	},
 	chart: {
-		type: 'line',
+		type: 'bar',
 		backgroundColor: null
 	},
 	colors: ['#fff'],
@@ -55,8 +55,7 @@ export default {
 			const mixedOptions = Object.assign({}, DEFAULT_OPTIONS, {
 				series: this.series,
 				yAxis: this.yAxis,
-				xAxis: this.xAxis,
-				title: this.title
+				xAxis: this.xAxis
 			});
 
       this.map = new Highcharts.Chart(this.$refs.container, mixedOptions);

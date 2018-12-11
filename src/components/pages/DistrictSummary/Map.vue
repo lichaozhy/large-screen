@@ -7,32 +7,32 @@
 	:bordered="false"
 	title="天津市 - 全市App发布数量分布总览">
 	<chart-map ref="map" :series="series" />
+	<b-button variant="link"
+		style="color:#fff;position:relative;z-index: 10" size="lg" href="#/tianjin/summary">返回全市</b-button>
 </ls-panel>
 
 </template>
 
 <script>
 import tianjinMapGeoJson from '../../../assets/geoJson/tianjin.json';
-import rawData from '../../../assets/data.json';
+import { randRage } from '../../utils/random';
 import { districtList } from './utils';
 
-const districtCode = Object.keys(rawData.district);
-const districtNameList = districtCode.map(code => {
-	const district = tianjinMapGeoJson.features.find(district => {
-		return district.properties.filename === code;
-	});
-
-	return district.properties.fullname;
+tianjinMapGeoJson.features.forEach(feature => {
+	feature.id = feature.properties.fullname;
 });
-
+const provinceList = tianjinMapGeoJson.features.map(feature => feature.properties.name);
 
 export default {
 	data() {
-		const sample = districtNameList.map((name, index) => {
+		const sample = provinceList.map(provinceName => {
 			return {
-				id: name,
-				name: name,
-				value: rawData.district[districtCode[index]].summary.app
+				id: provinceName,
+				name: provinceName,
+				value: randRage(1000, 10000),
+				deltaValue: randRage(-10, 50),
+				riskAppNumber: randRage(0, 100),
+				deltaRiskAppNumber: randRage(-10, 20)
 			};
 		});
 
@@ -76,23 +76,6 @@ export default {
 			return chinaMapGeoJson;
 		}
 	},
-	// mounted() {
-	// 	let index = 0;
-
-	// 	this.timer = setInterval(() => {
-	// 		if (this.stop) {
-	// 			return;
-	// 		}
-
-	// 		this.index = index++ % districtList.length;
-	// 		const name = districtList[this.index];
-
-	// 		this.$refs.map.map.get(name).select();
-	// 	}, 2000);
-	// },
-	// destroyed() {
-	// 	clearInterval(this.timer);
-	// }
 }
 </script>
 

@@ -23,10 +23,10 @@ import rawData from '../../../assets/data.json';
 
 export default {
 	data() {
-		let prev = rawData.tianjin.summary.app;
+		let prev = rawData.district[this.$route.params.name].summary.app;
 
 		return {
-			delta: [0, 0, 0, 0, 0, 0].map(() => prev -= randRage(0, 100)).reverse()
+			delta: [0, 0, 0, 0, 0, 0].map(() => prev -= randRage(0, 2)).reverse()
 		};
 	},
 	computed: {

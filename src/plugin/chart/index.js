@@ -10,6 +10,7 @@ import Linear from './Linear';
 import Wrap from './ChartWrap';
 import Pie from './Pie';
 import Guage from './Guage';
+import Bar from './Bar';
 
 export default function install(Vue) {
 	Vue.component('chartMap', Map);
@@ -17,4 +18,5 @@ export default function install(Vue) {
 	Vue.component('chartWrap', Wrap);
 	Vue.component('chart-pie', Pie);
 	Vue.component('chart-guage', Guage);
+	Vue.component('chart-bar', Bar);
 }

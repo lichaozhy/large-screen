@@ -1,67 +1,57 @@
 <template>
 	
 <b-container fluid class="h-100 p-0" id="tianjin-view">
-
+	<h1>天津市App发布情况总览</h1>
+	
 	<div class="ls-grid"
-		style="width:40%;left:30%;top:10%;bottom:10%">
-		<tianjin-map />
+		style="width:30%;height:30%;left:0;top:0">
+		<app-number />
 	</div>
 
 	<div class="ls-grid"
-		style="width:30%;height:40%;right: 0%;top:0">
+		style="width:30%;height:70%;left:0;top:30%">
+		<district-bar />
+	</div>
+
+	<div class="ls-grid"
+		style="width:40%;left:30%;top:0%;bottom:0%">
+		<tianjin-map @map-select="goto" />
+	</div>
+
+	<div class="ls-grid"
+		style="width:30%;height:40%;right:0;top:0">
 		<month-chart />
 	</div>
 
-	<!-- <div class="ls-grid"
-		style="width:20%;height:40%;left: 0">
-		<area-top10 ref="top10" />
+	<div class="ls-grid"
+		style="width:30%;height:60%;right:0;top:40%">
+		<trade-bar />
 	</div>
 
-	<div class="ls-grid"
-		style="width:20%;height:30%;left: 0;top:40%">
-		<trade-pie />
-	</div>
-	
-	<div class="ls-grid"
-		style="width:20%;height:30%;left: 0;top:70%">
-		<safe-index />
-	</div>
-	
-	<div class="ls-grid"
-		style="width:20%;height:40%;left: 80%;top:0">
-		<risk-month />
-	</div>
-
-	<div class="ls-grid"
-		style="width:40%;height:60%;left: 60%;top:40%">
-		<area-pie />
-	</div> -->
 </b-container>
 
 </template>
 
 <script>
+import tianjinMapGeoJson from '../../../assets/geoJson/tianjin.json';
+
 import TianjinMap from './Map';
-
 import MonthChart from './MonthChart';
-import SafeIndex from './SafeIndex';
-import AreaPie from './AreaPie';
-import RiskMonth from './RiskMonth';
-import TradePie from './TradePie';
-// import TradeRiskPie from './TradeRiskPie';
-
-import AreaTop10 from './AreaTop10';
+import DistrictBar from './DistrictBar';
+import AppNumber from './AppNumber';
+import TradeBar from './TradeBar';
 
 export default {
 	components: {
-		TianjinMap, AreaTop10,
-		MonthChart, SafeIndex,
-		AreaPie, TradePie,
-		RiskMonth
+		TianjinMap, MonthChart, DistrictBar, AppNumber, TradeBar
 	},
 	methods: {
-		syncTop10(name) {
-			this.$refs.top10.select(name);
+		goto(name) {
+			const code = tianjinMapGeoJson.features.find(district => {
+				return district.properties.fullname === name;
+			}).properties.filename;
+			
+			this.$router.push(`/tianjin/district/${code}/summary`);
 		}
 	}
 }
