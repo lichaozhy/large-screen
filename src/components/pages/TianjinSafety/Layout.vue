@@ -15,7 +15,7 @@
 
 	<div class="ls-grid"
 		style="width:40%;left:30%;top:0%;bottom:0%">
-		<tianjin-map />
+		<tianjin-map @map-select="goto" />
 	</div>
 
 	<div class="ls-grid"
@@ -51,7 +51,7 @@ export default {
 				return district.properties.fullname === name;
 			}).properties.filename;
 			
-			this.$router.push(`/tianjin/district/${code}/summary`);
+			this.$router.push(`/tianjin/district/${code}/safety`);
 		}
 	}
 }

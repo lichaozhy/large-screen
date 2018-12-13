@@ -64,17 +64,23 @@ const sceneList = [
 		download: [2000, 500000],
 		leak: [50, 250]
 	}
-]
-
-const data = [];
-
-sceneList.forEach(scene => {
-	for (let i = 0; i < rawData.tianjin.summary.app * scene.rate; i++) {
-		data.push([randRage(scene.leak[0], scene.leak[1]), randRage(scene.download[0], scene.download[1])]);
-	}
-});
+];
 
 export default {
+	data() {
+		const code = this.$route.params.name;
+		const data = [];
+
+		sceneList.forEach(scene => {
+			for (let i = 0; i < rawData.district[code].summary.app * scene.rate; i++) {
+				data.push([randRage(scene.leak[0], scene.leak[1]), randRage(scene.download[0], scene.download[1])]);
+			}
+		});
+
+		return {
+			data, code
+		};
+	},
 	computed: {
 		monthTotal() {
 			return this.delta;
@@ -82,11 +88,11 @@ export default {
 		series() {
 			return [{
 				name: 'App总量',
-				data,
+				data: this.data,
 				marker: {
-					radius: 1.2
+					radius: 2
 				},
-				color: 'rgba(255,255,255,.4)',
+				color: 'rgba(255,255,255,.5)',
 				tooltip: {
 					enabled: false
 				}

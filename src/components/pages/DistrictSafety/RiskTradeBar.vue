@@ -42,9 +42,11 @@ const riskTradeTotalList = rawData.dict.trade.map((category, index) => {
 
 export default {
 	data() {
+		const code = this.$route.params.name;
+
 		return {
 			tradeList: rawData.dict.trade,
-			data: riskTradeTotalList
+			data: rawData.district[code].risk
 		};
 	}
 }

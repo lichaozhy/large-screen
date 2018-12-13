@@ -29,6 +29,9 @@ const DEFAULT_OPTIONS = {
 	// 		},
 	// 	}
 	// },
+	tooltip: {
+		enabled: false
+	},
 	legend: {
 		enabled: false
 	}

@@ -2,7 +2,7 @@
 
 <ls-panel
 	:bordered="true"
-	title="全市App分类">
+	title="全区App分类">
 	<chart-bar
 		:series="[{
 			data: data,

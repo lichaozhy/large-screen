@@ -8,10 +8,10 @@
 		<app-number />
 	</div>
 
-	<!-- <div class="ls-grid"
+	<div class="ls-grid"
 		style="width:30%;height:70%;left:0;top:30%">
-		<district-bar />
-	</div> -->
+		<top10 />
+	</div>
 
 	<div class="ls-grid"
 		style="width:40%;left:30%;top:0%;bottom:0%">
@@ -38,6 +38,7 @@ import TianjinMap from './Map';
 import MonthChart from './MonthChart';
 import AppNumber from './AppNumber';
 import TradeBar from './TradeBar';
+import Top10 from './Top10';
 
 export default {
 	data() {
@@ -49,7 +50,7 @@ export default {
 		return { fullname, code }
 	},
 	components: {
-		TianjinMap, MonthChart, AppNumber, TradeBar
+		TianjinMap, MonthChart, AppNumber, TradeBar, Top10
 	},
 	methods: {
 	}
